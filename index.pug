@@ -2,4 +2,16 @@ extends layout/layout.pug
 
 block content
   main.main
-  
+    .main-header
+      .main-container
+        a(href="./menu.pug")
+          | MENU
+        a(href="./card.pug")
+          | AND Y CLUB
+    .main-logo
+    .instagramm
+      a(href="https://www.instagram.com/").instagramm-link
+        | instagram
+      .instagramm__address
+        | 344002, UNIVERSITETSKY 25, ROSTOV-ON-DON, RUSSIA
+  include includes/footer.pug
