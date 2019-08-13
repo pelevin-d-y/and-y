@@ -1,0 +1,208 @@
+.club-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+    .club-container {
+        width: 544px;
+        margin-left: 232px;
+    }
+}
+
+.card-wrapper {
+    position: relative;
+   
+}
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 64px;
+    right: 0;
+    display: block;
+    width: 344px;
+    height: 344px;
+    background: #DD5111;
+}
+
+.card-wrapper::after {
+    content: url('../images/ClubCard.png');
+    display: block;
+    position: absolute;
+    top: 245px;
+    right: 150px;
+    width: 400px;
+    height: 248px;
+}
+
+.card-image {
+    position: relative;
+    width: 400px;
+    height: 248px;
+}
+
+.card-close {
+    position: relative;
+    top: 110px;
+    right: 80px;
+    width: 56px;
+    height: 56px;
+    border: 1px solid #2D2928;
+    border-radius: 50%;
+
+}
+
+.card-close::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    width: 25px;
+    height: 1px;
+    background-color: black;
+    z-index: 1;
+    transform: rotate(45deg);
+}
+
+.card-close::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    width: 25px;
+    height: 1px;
+    background-color: black;
+    z-index: 1;
+    transform: rotate(-45deg);
+    
+}
+
+.club-title {
+    position: relative;
+    margin-top: 104px;
+    font-family: Formular;
+    font-size: 32px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #D2D2D2;
+}
+
+.club-title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 120px;
+    left: 383px;
+    width: 160px;
+    height: 88px;
+    background: #DD5111;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.club-subtitle {
+    margin-top: 32px;
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 180%;
+    letter-spacing: 0.03em;
+}
+
+.lavel-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 76px;
+}
+
+.lavel-item_text-title {
+    font-family: Formular;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.lavel-item_text-description {
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 180%;
+    letter-spacing: 0.03em;
+}
+
+.lavel-item_circle {
+    margin-top: -50px;
+    border: 1px solid #D2D2D2;
+    box-sizing: border-box;
+    width: 160px;
+    height: 88px;
+    border-radius: 50%;
+    font-family: Formular;
+    font-size: 48px;
+    line-height: 59px;
+    padding: 13px 28px 21px 28px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.next-level {
+    margin-top: 88px;
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 180%;
+    letter-spacing: 0.03em;
+}
+
+.card-ul {
+    padding: 0;
+    margin-top: 80px;
+
+    li {
+        position: relative;
+        list-style-type: none;
+        margin-top: 44px;
+        font-family: Formular;
+        font-size: 18px;
+        line-height: 180%;
+        letter-spacing: 0.03em;
+    }
+
+    li::before {
+        position: absolute;
+        top: 12px;
+        left: -17px;
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border: 1px solid #2D2928;
+        border-radius: 50%;
+        background: #ffffff;
+    }
+}
+
+.present {
+    width: 608px;
+    margin-left: -40px;
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 180%;
+    letter-spacing: 0.03em;
+    margin-top: 112px;
+    padding: 24px 32px 32px 32px;
+    border: 1px solid #2D2928;
+    box-shadow: 15px 22px 0 #DD5111;
+    margin-bottom: 100px;
+}
+
+marquee {
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
