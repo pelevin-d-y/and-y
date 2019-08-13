@@ -35,29 +35,26 @@
     height: 248px;
 }
 
-.card-image {
-    position: relative;
-    width: 400px;
-    height: 248px;
-}
 
-.card-close {
-    position: relative;
+
+.close {
+    position: absolute;
+    display: block;
     top: 110px;
     right: 80px;
     width: 56px;
     height: 56px;
     border: 1px solid #2D2928;
     border-radius: 50%;
-
+    
 }
 
-.card-close::after {
+.close::after {
     content: '';
     display: block;
     position: absolute;
     top: 50%;
-    right: 30%;
+    right: 28%;
     width: 25px;
     height: 1px;
     background-color: black;
@@ -65,12 +62,12 @@
     transform: rotate(45deg);
 }
 
-.card-close::before {
+.close::before {
     content: '';
     display: block;
     position: absolute;
     top: 50%;
-    right: 30%;
+    right: 28%;
     width: 25px;
     height: 1px;
     background-color: black;

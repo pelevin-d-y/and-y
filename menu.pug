@@ -1,8 +1,9 @@
 extends layout/layout.pug
 
 block content
-  div
-    | blog
-
-  a(href="index.pug")
-    | index
+  .menu-wrapper 
+    .menu-title
+     | MENU
+    .container-menu
+      img.menu-img(src="./src/images/page1.svg")
+    include includes/close.pug
