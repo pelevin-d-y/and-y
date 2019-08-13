@@ -5,6 +5,7 @@
     padding-bottom: 44px;
 
     .club-container {
+        position: relative;
         width: 544px;
         margin-left: 232px;
     }
@@ -89,17 +90,18 @@
     color: #D2D2D2;
 }
 
-.club-title::after {
-    content: '';
+.club-oval {
     display: block;
     position: absolute;
-    top: 120px;
-    left: 383px;
+    top: 228px;
+    right: 0;
     width: 160px;
     height: 88px;
     background: #DD5111;
     border-radius: 50%;
     z-index: -1;
+
+    transition: top 0.3s;
 }
 
 .club-subtitle {
@@ -132,6 +134,7 @@
 }
 
 .lavel-item_circle {
+    flex-shrink: 0;
     margin-top: -50px;
     border: 1px solid #D2D2D2;
     box-sizing: border-box;
