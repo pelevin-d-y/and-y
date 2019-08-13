@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
+    padding-bottom: 44px;
 
     .club-container {
         width: 544px;
@@ -28,8 +29,8 @@
     content: url('../images/ClubCard.png');
     display: block;
     position: absolute;
-    top: 245px;
-    right: 150px;
+    top: 249px;
+    right: 158px;
     width: 400px;
     height: 248px;
 }

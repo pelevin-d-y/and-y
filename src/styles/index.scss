@@ -1,6 +1,10 @@
 .index-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+
   background: url('../images/main-bg.png') no-repeat center/cover;
 }
 
@@ -14,31 +18,60 @@
   justify-content: space-between;
   align-items: center;
 
-  max-width: 1160px;
+  max-width: 1180px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .main-menu {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-
-  width: 216px;
-  height: 120px;
-  justify-content: center;
-  text-align: center;
-
-  border: 1px solid #2D2928;
-  border-radius: 107px/61px;
-
-  font-family: Formular;
-  font-size: 32px;
-  line-height: 39px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  position: relative;
   text-decoration: none;
-  color: #2D2928;
+
+  .text {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  
+    width: 216px;
+    height: 120px;
+    justify-content: center;
+    text-align: center;
+  
+    border: 1px solid #2D2928;
+    border-radius: 107px/61px;
+
+    font-family: Formular;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #2D2928;
+  }
+
+  .hover {
+    position: absolute;
+    z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .3s;
+    pointer-events: none;
+    border-radius: 299px/162px;
+
+    display: block;
+    width: 592px;
+    height: 325px;
+    background: #1E30E3;
+  }
+
+  &:hover .hover {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .main-club {
@@ -72,7 +105,56 @@
 }
 
 .main-instagramm {
-  max-width: 979px;
+  max-width: 999px;
+  padding: 0 10px;
   width: 100%;
   margin: 0 auto;
 }
+
+.main-instagramm__link {
+  font-family: Formular;
+  font-size: 32px;
+  line-height: 39px;
+  color: #2D2928;
+  text-decoration: none;
+}
+
+.main-instagramm__address {
+  margin-top: 8px;
+
+  font-family: Formular;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 50px;
+  padding-bottom: 44px;
+}
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+ }
+ 
+ .marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  font-size: 18px;
+  line-height: 22px;
+ }
+ 
+ .marquee span:hover {
+  animation-play-state: paused
+ }
+ 
+ @keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+ }
