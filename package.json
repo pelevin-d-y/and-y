@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "parcel index.pug",
+    "dev": "parcel index.pug",
     "production": "parcel build index.pug parcel --public-url ./"
   },
   "keywords": [],

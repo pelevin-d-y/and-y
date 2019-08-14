@@ -5,15 +5,31 @@ $(document).ready(() => {
   const activeOval = $('.club-oval')
   const items = $('.lavel-item')
 
-  const positionActiveOval = activeOval.position()
-  setTimeout(() => {
-    items.each((index, el) => {
-      const offset = 26
-      const topPosition = $(el).position().top + offset
+  const itemHoverHandler = () => {
+    const windowWidth = $( window ).width()
+    const offset = windowWidth <= 1024 ? 36 : 26
 
-      $(el).hover(() => {
+    items.each((index, el) => {
+      const topPosition = $(el).position().top + offset
+      
+      $(el).mouseenter(() => {
         activeOval.css('top', topPosition)
       })
     })
+  }
+
+  const itemHoverRemoveHandler = () => {
+    items.each((index, el) => {
+      $(el).unbind( "mouseenter" );
+    })
+  }
+
+  setTimeout(() => {
+    itemHoverHandler()
   }, 200)
+
+  $(window).resize(() => {
+    itemHoverRemoveHandler()
+    itemHoverHandler()
+  })
 })
