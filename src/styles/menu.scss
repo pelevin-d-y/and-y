@@ -46,14 +46,19 @@
 
 @media (max-width: 768px) {
 
+    .menu-wrapper {
+        display: block;
+    }
     .menu-title {
+        margin-top: 49px;
         height: 30px;
         font-size: 22px;
     }
     .menu-img {
         width: 100%;
         min-height: auto;
-        margin-left: -44px;
+        margin-left: 0px;
+        margin-top: 30px;
     }
 
 }
