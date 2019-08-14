@@ -9,7 +9,7 @@
 }
 
 .main-header {
-  padding-top: 68px;
+  padding-top: 7vh;
 }
 
 .main-container {
@@ -99,7 +99,7 @@
 .main-logo {
   width: 668px;
   height: 169px;
-  margin: 156px auto 143px auto;
+  margin: 17vh auto 17vh auto;
 
   background: url('../images/logo.svg') no-repeat center/contain;
 }
@@ -131,8 +131,8 @@
 
 .footer {
   margin-top: auto;
-  padding-top: 50px;
-  padding-bottom: 44px;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
 }
 
 .marquee {
@@ -158,3 +158,45 @@
   0%   { transform: translate(0, 0); }
   100% { transform: translate(-100%, 0); }
  }
+
+
+@media (max-width: 768px) {
+  .main-menu .text {
+    width: 122px;
+    height: 70px;
+
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .main-club {
+    padding-right: 22px;
+    font-size: 20px;
+    line-height: 26px;
+
+    &::after {
+      top: 2px;
+      right: 0;
+
+      width: 9px;
+      height: 16px;
+    }
+  }
+
+  .main-logo {
+    width: 310px;
+    height: 76px;
+  }
+
+  .main-instagramm__link {
+    font-size: 26px;
+  }
+
+  .main-instagramm__address {
+    font-size: 16px;
+  }
+
+  .marquee span {
+    font-size: 16px;
+  }
+}
