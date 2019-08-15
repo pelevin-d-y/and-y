@@ -1,0 +1,202 @@
+.index-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: url('../images/main-bg.png') no-repeat center/cover;
+}
+
+.main-header {
+  padding-top: 7vh;
+}
+
+.main-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.main-menu {
+  position: relative;
+  text-decoration: none;
+
+  .text {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  
+    width: 216px;
+    height: 120px;
+    justify-content: center;
+    text-align: center;
+  
+    border: 1px solid #2D2928;
+    border-radius: 107px/61px;
+
+    font-family: Formular;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #2D2928;
+  }
+
+  .hover {
+    position: absolute;
+    z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform .3s;
+    pointer-events: none;
+    border-radius: 299px/162px;
+
+    display: block;
+    width: 592px;
+    height: 325px;
+    background: #1E30E3;
+  }
+
+  &:hover .hover {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.main-club {
+  position: relative;
+  padding-right: 120px;
+
+  color: #2D2928;
+  font-family: Formular;
+  font-size: 32px;
+  line-height: 39px;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 0;
+    display: block;
+    width: 11px;
+    height: 18px;
+    background: url('../images/arrow.svg') no-repeat center/contain;
+  }
+}
+
+.main-logo {
+  width: 668px;
+  height: 169px;
+  margin: 17vh auto 17vh auto;
+
+  background: url('../images/logo.svg') no-repeat center/contain;
+}
+
+.main-instagramm {
+  max-width: 999px;
+  padding: 0 10px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-instagramm__link {
+  font-family: Formular;
+  font-size: 32px;
+  line-height: 39px;
+  color: #2D2928;
+  text-decoration: none;
+}
+
+.main-instagramm__address {
+  margin-top: 8px;
+
+  font-family: Formular;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+}
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+ }
+ 
+ .marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  font-size: 18px;
+  line-height: 22px;
+ }
+ 
+ .marquee span:hover {
+  animation-play-state: paused
+ }
+ 
+ @keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+ }
+
+
+@media (max-width: 768px) {
+  .main-menu .text {
+    width: 122px;
+    height: 70px;
+
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .main-club {
+    padding-right: 22px;
+    font-size: 20px;
+    line-height: 26px;
+
+    &::after {
+      top: 2px;
+      right: 0;
+
+      width: 9px;
+      height: 16px;
+    }
+  }
+
+  .main-logo {
+    width: 310px;
+    height: 76px;
+  }
+
+  .main-instagramm__link {
+    font-size: 26px;
+  }
+
+  .main-instagramm__address {
+    font-size: 16px;
+  }
+
+  .marquee span {
+    font-size: 16px;
+  }
+}

@@ -1,5 +1,20 @@
 extends layout/layout.pug
 
 block content
-  main.main
-  
+  .index-wrapper
+    main.main
+      .main-header
+        .main-container
+          a.main-menu(href="./menu.pug")
+            span.text
+              | MENU
+            span.hover
+          a.main-club(href="./card.pug")
+            | AND Y CLUB
+      .main-logo
+      .main-instagramm
+        a(href="https://www.instagram.com/").main-instagramm__link
+          | instagram
+        .main-instagramm__address
+          | 344002, UNIVERSITETSKY 25, ROSTOV-ON-DON, RUSSIA
+    include includes/footer.pug

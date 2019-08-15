@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "parcel index.pug",
+    "dev": "parcel index.pug",
     "production": "parcel build index.pug parcel --public-url ./"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "autoprefixer": "^9.5.1",
     "jquery": "^3.4.0",
     "normalize.css": "^8.0.1",
+    "npm": "^6.10.3",
     "postcss-modules": "^1.4.1"
   }
 }

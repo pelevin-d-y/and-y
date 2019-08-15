@@ -1,4 +1,17 @@
-body {
-  
+@font-face {
+  font-family: Formular;
+  src: url('../fonts/Formular.woff') format('woff'),
+      url('../fonts/Formular.woff2') format('woff2')
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: Formular;
+}
+
+
 
