@@ -1,4 +1,15 @@
+#backCanvas{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  //filter:blur(4px);
+}
+
 .index-wrapper {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
 
@@ -6,6 +17,11 @@
   min-height: 100vh;
 
   background: url('../images/main-bg.png') no-repeat center/cover;
+}
+
+.main {
+  position: relative;
+  z-index: 10;
 }
 
 .main-header {
@@ -35,12 +51,12 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-  
+
     width: 216px;
     height: 120px;
     justify-content: center;
     text-align: center;
-  
+
     border: 1px solid #2D2928;
     border-radius: 107px/61px;
 
@@ -130,6 +146,8 @@
 }
 
 .footer {
+  position: relative;
+  z-index: 10;
   margin-top: auto;
   padding-top: 6vh;
   padding-bottom: 6vh;
@@ -141,7 +159,7 @@
   overflow: hidden;
   box-sizing: border-box;
  }
- 
+
  .marquee span {
   display: inline-block;
   padding-left: 100%;
@@ -149,11 +167,11 @@
   font-size: 18px;
   line-height: 22px;
  }
- 
+
  .marquee span:hover {
   animation-play-state: paused
  }
- 
+
  @keyframes marquee {
   0%   { transform: translate(0, 0); }
   100% { transform: translate(-100%, 0); }
