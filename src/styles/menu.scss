@@ -29,6 +29,10 @@
     
 }
 
+.close {
+    position: fixed;
+}
+
 @media (max-width: 1200px) {
     .menu-title {
         margin-left: 60px;
