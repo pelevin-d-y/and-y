@@ -59,7 +59,6 @@
     right: 80px;
     width: 56px;
     height: 56px;
-    background: #ffffff;
     border: 1px solid #2D2928;
     border-radius: 50%;
    
@@ -221,6 +220,15 @@
 }
 
 marquee {
+    
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.site {
     font-family: Formular;
     font-size: 18px;
     line-height: 22px;
@@ -247,12 +255,15 @@ marquee {
     .present {
         margin-left: 0;
     }
+
+    
 }
 
 @media (max-width: 1024px) {
     .card-wrapper .close {
         top: 30px;
         right: 33px;
+        background: #ffffff;
     }
 
     .card-wrapper::before {
