@@ -7,10 +7,11 @@
 .container-menu {
     display: flex;  
     flex-direction: column;
+    margin-left: 9%;
 }
 .menu-title {
     margin-top: 130px;
-    margin-left: 230px;
+    margin-left: 12%;
     font-family: Formular;
     font-size: 32px;
     line-height: 39px;
@@ -23,10 +24,15 @@
 }
 .menu-img {
     margin-top: 80px;
-    margin-left: 181px;
-    // width: 544px;
-    // min-height: 864px;
-    
+}
+
+.close-wrapper {
+    position: fixed;
+    top: 0;
+    max-width: 1200px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 @media (max-width: 1200px) {
@@ -36,27 +42,35 @@
 }
 
 @media (max-width: 1024px) {
+
     .close {
         top: 30px;
-        right: 33px;
+        right: 15px;
     }
     .menu-title {
+        font-size: 21px;
         margin-top: 37px;
         margin-left: 20px;
     }
     .menu-img {
         margin-top: 80px;
-        margin-left: 40px;
     }
 }
 
 @media (max-width: 768px) {
+    .container-menu {
+        margin-left: 0;
+    }
+
+    .close {
+        background: #ffffff;
+    }
 
     .menu-wrapper {
         display: block;
     }
     .menu-title {
-        margin-top: 49px;
+        margin-top: 43px;
         height: 30px;
         font-size: 22px;
     }

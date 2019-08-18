@@ -1,9 +1,13 @@
 .club-wrapper {
+    position: relative;
+
     display: flex;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    // flex-direction: row-reverse;
     padding-bottom: 44px;
+    max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
 
     .club-container {
         position: relative;
@@ -11,13 +15,19 @@
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
-        margin-left: 14%;
     }
 }
 
 .card-wrapper {
-    position: relative;
-   
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+
+    max-width: 1200px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .card-wrapper::before {
     content: '';
@@ -51,7 +61,7 @@
     height: 56px;
     border: 1px solid #2D2928;
     border-radius: 50%;
-    
+   
 }
 
 .close::after {
@@ -62,7 +72,7 @@
     right: 28%;
     width: 25px;
     height: 1px;
-    background-color: black;
+    background-color: #2D2928;
     z-index: 1;
     transform: rotate(45deg);
 }
@@ -75,7 +85,7 @@
     right: 28%;
     width: 25px;
     height: 1px;
-    background-color: black;
+    background-color: #2D2928;
     z-index: 1;
     transform: rotate(-45deg);
     
@@ -136,6 +146,10 @@
     font-size: 18px;
     line-height: 180%;
     letter-spacing: 0.03em;
+
+    span {
+        white-space: nowrap;
+    }
 }
 
 .lavel-item_circle {
@@ -210,6 +224,15 @@
 }
 
 marquee {
+    
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.site {
     font-family: Formular;
     font-size: 18px;
     line-height: 22px;
@@ -236,12 +259,15 @@ marquee {
     .present {
         margin-left: 0;
     }
+
+    
 }
 
 @media (max-width: 1024px) {
     .card-wrapper .close {
         top: 30px;
         right: 33px;
+        background: #ffffff;
     }
 
     .card-wrapper::before {
@@ -263,6 +289,25 @@ marquee {
 }
 
 @media (max-width: 768px) {
+    .club-subtitle {
+        font-size: 16px;
+        line-height: 180%;
+    }
+
+    .lavel-item_text-description {
+        font-size: 16px;
+    }
+
+    .card-wrapper .close {
+        top: 40px;
+        right: 15px;
+    }
+
+    .club-title {
+        margin-top: 55px;
+        font-size: 21px;
+    }
+
     .lavel-item_circle {
         right: -10px;
         top: -50px;
@@ -280,5 +325,11 @@ marquee {
         width: 127px;
         height: 80px;
         right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lavel-item_text {
+        width: 72%;
     }
 }
