@@ -112,7 +112,22 @@
   margin: 0 auto;
 }
 
+.main-instagramm__wrapper {
+  position: relative;
+}
+
+.main-instagramm__icon {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 23px;
+  height: 23px;
+  background: url('../images/instagram.svg') no-repeat center/contain;
+}
+
 .main-instagramm__link {
+  padding-left: 40px;
+
   font-family: Formular;
   font-size: 32px;
   line-height: 39px;
@@ -151,6 +166,7 @@
   animation: marquee 90s linear infinite;
   font-size: 18px;
   line-height: 22px;
+  text-transform: uppercase;
  }
  
  .marquee span:hover {
@@ -207,8 +223,16 @@
   }
 
   .main-instagramm__link {
+    padding-left: 30px;
+
     font-size: 21px;
     line-height: 26px;
+  }
+
+  .main-instagramm__icon {
+    top: 2px;
+    width: 18px;
+    height: 18px;
   }
 
   .main-instagramm__address {
