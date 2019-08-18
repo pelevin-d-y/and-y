@@ -17,6 +17,7 @@
 
 .card-wrapper {
     position: fixed;
+    z-index: 10;
     top: 0;
     right: 0;
    
@@ -220,6 +221,14 @@ marquee {
     text-transform: uppercase;
 }
 
+.site {
+    font-family: Formular;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
 @media (max-width: 1200px) {
     .club-wrapper .club-container {
         margin-left: 40px;
@@ -239,12 +248,15 @@ marquee {
     .present {
         margin-left: 0;
     }
+
+    
 }
 
 @media (max-width: 1024px) {
     .card-wrapper .close {
         top: 30px;
         right: 33px;
+        background: #ffffff;
     }
 
     .card-wrapper::before {
