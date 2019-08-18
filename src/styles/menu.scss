@@ -42,11 +42,13 @@
 }
 
 @media (max-width: 1024px) {
+
     .close {
         top: 30px;
-        right: 33px;
+        right: 15px;
     }
     .menu-title {
+        font-size: 21px;
         margin-top: 37px;
         margin-left: 20px;
     }
@@ -56,12 +58,19 @@
 }
 
 @media (max-width: 768px) {
+    .container-menu {
+        margin-left: 0;
+    }
+
+    .close {
+        background: #ffffff;
+    }
 
     .menu-wrapper {
         display: block;
     }
     .menu-title {
-        margin-top: 49px;
+        margin-top: 43px;
         height: 30px;
         font-size: 22px;
     }
