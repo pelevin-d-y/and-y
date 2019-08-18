@@ -1,9 +1,13 @@
 .club-wrapper {
+    position: relative;
+
     display: flex;
     justify-content: space-between;
     // flex-direction: row-reverse;
     padding-bottom: 44px;
+    max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
 
     .club-container {
         position: relative;
@@ -11,7 +15,6 @@
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
-        margin-left: 14%;
     }
 }
 
@@ -20,7 +23,11 @@
     z-index: 10;
     top: 0;
     right: 0;
-   
+
+    max-width: 1200px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .card-wrapper::before {
     content: '';
@@ -267,6 +274,16 @@ marquee {
 }
 
 @media (max-width: 768px) {
+    .card-wrapper .close {
+        top: 40px;
+        right: 15px;
+    }
+
+    .club-title {
+        margin-top: 55px;
+        font-size: 21px;
+    }
+
     .lavel-item_circle {
         right: -10px;
         top: -50px;
