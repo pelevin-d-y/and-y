@@ -146,6 +146,10 @@
     font-size: 18px;
     line-height: 180%;
     letter-spacing: 0.03em;
+
+    span {
+        white-space: nowrap;
+    }
 }
 
 .lavel-item_circle {
@@ -285,6 +289,15 @@ marquee {
 }
 
 @media (max-width: 768px) {
+    .club-subtitle {
+        font-size: 16px;
+        line-height: 180%;
+    }
+
+    .lavel-item_text-description {
+        font-size: 16px;
+    }
+
     .card-wrapper .close {
         top: 40px;
         right: 15px;
@@ -312,5 +325,11 @@ marquee {
         width: 127px;
         height: 80px;
         right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lavel-item_text {
+        width: 72%;
     }
 }
