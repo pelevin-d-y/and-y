@@ -37,7 +37,7 @@
     display: block;
     width: 344px;
     height: 344px;
-    background: #DD5111;
+    background: #F27238;
 }
 
 .card-wrapper::after {
@@ -111,7 +111,7 @@
     right: 0;
     width: 160px;
     height: 88px;
-    background: #DD5111;
+    background: #F27238;
     border-radius: 50%;
     z-index: -1;
 
@@ -219,7 +219,7 @@
     margin-top: 112px;
     padding: 24px 32px 32px 32px;
     border: 1px solid #2D2928;
-    box-shadow: 15px 22px 0 #DD5111;
+    box-shadow: 15px 22px 0 #F27238;
     margin-bottom: 100px;
 }
 
@@ -235,8 +235,8 @@ marquee {
 .site {
     font-family: Formular;
     font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 0.02em;
+    line-height: 180%;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
 }
 
