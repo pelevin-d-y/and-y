@@ -17,6 +17,7 @@
 
 .card-wrapper {
     position: fixed;
+    z-index: 10;
     top: 0;
     right: 0;
    
@@ -51,6 +52,7 @@
     right: 80px;
     width: 56px;
     height: 56px;
+    background: #ffffff;
     border: 1px solid #2D2928;
     border-radius: 50%;
    
