@@ -2,11 +2,14 @@
 import {glMatrix,mat4,mat3,quat} from "gl-Matrix"
 import {vertex_shader_source,frag_shader_source} from "./shaders.js"
 import {cube_obj} from "./cube.js"
-
+import fallbackBackground  from "../images/main-bg.png"
 
 const canvas = document.querySelector("#backCanvas");
 var gl = canvas.getContext ? canvas.getContext("webgl") : fallback();
-
+function fallback(){
+  canvas.style = "background: url('"+fallbackBackground+"') no-repeat center/cover"
+  return null;
+}
 
 
 var shaderProgram;
@@ -47,10 +50,7 @@ var q = quat.create();
 
 
 
-function fallback(){
-  return null;
 
-}
 
 function main(){
   if(!gl)
