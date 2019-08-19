@@ -8,9 +8,44 @@ const canvas = document.querySelector("#backCanvas");
 var gl = canvas.getContext ? canvas.getContext("webgl") : fallback();
 
 
-var shaderLocations={}
+
 var shaderProgram;
+
+
+// const params
+const shaderLocations={}
 const VERTEX_LENGTH_FLOAT = 12;
+const translationSpeed = -0.0014; //units per ms
+const rotationSpeed = 0.025; // degress per ms
+const fovy = 60;
+const distanceFromEye = 10;
+const viewPlaneHeight = 1.3* (2*distanceFromEye/Math.tan(glMatrix.toRadian(90-fovy/2)));
+const viewPlaneLow = -viewPlaneHeight/2;
+const viewPlaneHigh = -viewPlaneLow;
+const instances=[
+  {x: 0, y:0, z:7, angle:10},
+  {x: 0, y:-3, z:6, angle:90},
+  {x: 0, y:-7, z:5.5, angle:-40},
+  {x: 0, y:4, z:6.5, angle:-50},
+  {x: 0, y:2.5, z:2.5, angle:20},
+  {x: 0, y:0.5, z:-0.5, angle:60},
+  {x: 0, y:5.5, z:-2, angle:30},
+  {x: 0, y:3, z:-5, angle:-45},
+  {x: 0, y:-2.7, z:-1.6, angle:34},
+  {x: 0, y:-5, z:1, angle:0},
+  {x: 0, y:6.6, z:2, angle:67},
+];
+// helper variables
+var lastTime = 0;
+var handleResize = true;
+var transformMatrix = mat4.create();
+var inverseMatrix = mat3.create();
+var projectionMatrix = mat4.create();
+var viewMatrix = mat4.create();
+var q = quat.create();
+
+
+
 
 function fallback(){
   return null;
@@ -44,19 +79,31 @@ function main(){
 
   gl.bindBuffer(gl.ARRAY_BUFFER, cube_obj.VBO);
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cube_obj.IBO);
-  window.requestAnimationFrame(drawCube);
+
+  lastTime = Date.now();
+  window.addEventListener('resize',()=>{ handleResize = true},{capture:true,passive:true});
+  window.requestAnimationFrame(calculateFrame);
 }
 
 
- var transformMatrix = mat4.create();
- var inverseMatrix = mat3.create();
- var projectionMatrix = mat4.create();
- var viewMatrix = mat4.create();
- var q = quat.create();
- let lastNow=0;
+
+function drawInstance(instance,translated,rotated){
+
+  instance.angle = rotated+instance.angle - Math.round((rotated+instance.angle)/360)*360;
+  instance.z = translated+instance.z - Math.round((translated+instance.z)/viewPlaneHeight)*viewPlaneHeight;
+
+  quat.fromEuler(q,0,-30,  instance.angle);
+  mat4.fromRotationTranslationScale(transformMatrix,q,[instance.x,instance.y,instance.z],[2,2,2]);
+  mat3.normalFromMat4(inverseMatrix,transformMatrix);
+
+  gl.uniformMatrix4fv(shaderLocations.transformModelLocation,false,transformMatrix);
+  gl.uniformMatrix3fv(shaderLocations.transformNormalLocation,false,inverseMatrix)
+
+  gl.drawElements(gl.TRIANGLES,cube_obj.index_count,gl.UNSIGNED_INT,0);
+}
 
 
- function resize(canvas) {
+function resize(canvas) {
    // Lookup the size the browser is displaying the canvas.
   var realToCSSPixels = window.devicePixelRatio;
    var displayWidth  = Math.floor(canvas.clientWidth  * realToCSSPixels);
@@ -71,46 +118,32 @@ function main(){
      canvas.height = displayHeight;
 
 
-     mat4.perspective(projectionMatrix,glMatrix.toRadian(90),canvas.width/canvas.height,0.1,50);
-     mat4.lookAt(viewMatrix,[-5,0,0],[0,0,0],[0,0,1]);
-
-     let transformViewlLocation = gl.getUniformLocation(shaderProgram, "transform_view");
-     gl.uniformMatrix4fv(transformViewlLocation,false,viewMatrix);
-
-     let transformProjectionlLocation = gl.getUniformLocation(shaderProgram, "transform_projection");
-     gl.uniformMatrix4fv(transformProjectionlLocation,false,projectionMatrix);
-
-
-
-
+     mat4.perspective(projectionMatrix,glMatrix.toRadian(fovy),canvas.width/canvas.height,0.1,50);
+     gl.uniformMatrix4fv(shaderLocations.transformProjectionlLocation,false,projectionMatrix);
    }
    gl.viewport(0, 0, canvas.width,canvas.height);
+
  }
 
-function drawCube(now){
-   resize(canvas);
-   let period  = 100;
-   let time= now*0.001; // in seconds
-   let rotationSpeed = 50;// degrees in seconds
-   let translateSpeed = 1; // unit in seconds
+function calculateFrame(now){
+   if(handleResize){
+    resize(canvas);
+    handleResize = false;
+  }
+
    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-   quat.fromEuler(q,0,-30,rotationSpeed*time);
-   mat4.fromRotationTranslationScale(transformMatrix,q,[0,0,0],[2,2,2]);
-   mat3.normalFromMat4(inverseMatrix,transformMatrix);
-
-   // pass matrixes to gpu
-   gl.uniformMatrix4fv(shaderLocations.transformModelLocation,false,transformMatrix);
-   gl.uniformMatrix3fv(shaderLocations.transformNormalLocation,false,inverseMatrix)
-
-
-
-   gl.drawElements(gl.TRIANGLES,cube_obj.index_count,gl.UNSIGNED_INT,0);
-
+   const timePassed = now - lastTime;
+   const translated = timePassed * translationSpeed;
+   const rotated =  timePassed * rotationSpeed;
+   instances.forEach((inst)=> drawInstance(inst,translated,rotated));
    gl.flush();
-   lastNow = now;
-   requestAnimationFrame(drawCube);
+
+   lastTime = now;
+   requestAnimationFrame(calculateFrame);
 }
+
+
+
 
 function locateUniforms(){
   shaderLocations.transformModelLocation = gl.getUniformLocation(shaderProgram, "transform_model");
@@ -132,8 +165,8 @@ function locateUniforms(){
 
 function setConstShaderUniforms(){
 
-  mat4.perspective(projectionMatrix,glMatrix.toRadian(90),canvas.width/canvas.height,0.1,50);
-  mat4.lookAt(viewMatrix,[-5,0,0],[0,0,0],[0,0,1]);
+  mat4.perspective(projectionMatrix,glMatrix.toRadian(fovy),canvas.width/canvas.height,0.1,50);
+  mat4.lookAt(viewMatrix,[-distanceFromEye,0,0],[0,0,0],[0,0,1]);
 
   gl.uniformMatrix4fv(shaderLocations.transformViewlLocation,false,viewMatrix);
   gl.uniformMatrix4fv(shaderLocations.transformProjectionlLocation,false,projectionMatrix);

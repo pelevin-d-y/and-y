@@ -71,10 +71,10 @@ void main(){
 
 	gl_FragColor = material_emission;
 	gl_FragColor += material_ambient * light_ambient;
-	float Ndot = max(dot(normal, lightDir), 0.0);
+	float Ndot = dot(normal, lightDir);
   if(Ndot>0.0){
 	   gl_FragColor += material_diffuse * light_diffuse * Ndot;
-     float RdotVpow =pow(max(dot(reflect(-lightDir, normal), viewDir), 0.0), material_shininess);
+     float RdotVpow =pow(dot(reflect(-lightDir, normal), viewDir), material_shininess);
 	   //gl_FragColor += material_specular * light_specular* RdotVpow;
   }
   gl_FragColor *= vec4(vert_color,1);
