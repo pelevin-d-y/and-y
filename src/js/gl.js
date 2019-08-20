@@ -1,5 +1,5 @@
 
-import {glMatrix,mat4,mat3,quat} from "gl-Matrix"
+import {glMatrix,mat4,mat3,quat} from "gl-matrix"
 import {vertex_shader_source,frag_shader_source} from "./shaders.js"
 import {cube_obj} from "./cube.js"
 import fallbackBackground  from "../images/main-bg.png"
