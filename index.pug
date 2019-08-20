@@ -1,7 +1,10 @@
 extends layout/layout.pug
 
+block append scripts 
+  script(src="./src/js/gl.js" defer)
 block content
   .index-wrapper
+    canvas#backCanvas(width="200" height="200")
     main.main
       .main-header
         .main-container

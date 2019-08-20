@@ -1,11 +1,27 @@
+#backCanvas{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  filter:blur(7px);
+}
+
 .index-wrapper {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
 
   width: 100%;
   min-height: 100vh;
 
-  background: url('../images/main-bg.png') no-repeat center/cover;
+  //background: url('../images/main-bg.png') no-repeat center/cover;
+}
+
+.main {
+  position: relative;
+  z-index: 10;
 }
 
 .main-header {
@@ -27,7 +43,7 @@
 .main-menu {
   position: relative;
   text-decoration: none;
-  
+
 
   .text {
     position: relative;
@@ -146,6 +162,8 @@
 }
 
 .footer {
+  position: relative;
+  z-index: 10;
   margin-top: auto;
   padding-top: 6vh;
   padding-bottom: 6vh;
@@ -159,7 +177,7 @@
   overflow: hidden;
   box-sizing: border-box;
  }
- 
+
  .marquee span {
   display: inline-block;
   padding-left: 100%;
@@ -168,11 +186,11 @@
   line-height: 22px;
   text-transform: uppercase;
  }
- 
+
  .marquee span:hover {
   animation-play-state: paused
  }
- 
+
  @keyframes marquee {
   0%   { transform: translate(0, 0); }
   100% { transform: translate(-100%, 0); }
