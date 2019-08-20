@@ -97,7 +97,7 @@ function drawInstance(instance,translated,rotated){
   instance.angle = rotated+instance.angle - Math.round((rotated+instance.angle)/360)*360;
   instance.z = translated+instance.z - Math.round((translated+instance.z)/viewPlaneHeight)*viewPlaneHeight;
 
-  quat.fromEuler(q,0,-33,  instance.angle);
+  quat.fromEuler(q,0,instance.angle,  instance.angle);
   mat4.fromRotationTranslationScale(transformMatrix,q,[instance.x,instance.y,instance.z], cubeScaleVec);
   mat3.normalFromMat4(inverseMatrix,transformMatrix);
 
