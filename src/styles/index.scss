@@ -1,11 +1,27 @@
+#backCanvas{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  filter:blur(7px);
+}
+
 .index-wrapper {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
 
   width: 100%;
   min-height: 100vh;
 
-  background: url('../images/main-bg.png') no-repeat center/cover;
+  //background: url('../images/main-bg.png') no-repeat center/cover;
+}
+
+.main {
+  position: relative;
+  z-index: 10;
 }
 
 .main-header {
@@ -28,19 +44,19 @@
   position: relative;
   text-decoration: none;
 
+
   .text {
     position: relative;
     z-index: 10;
-
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-  
+    justify-content: center;
+
     width: 216px;
     height: 120px;
-    justify-content: center;
+    padding-top: 6px;
     text-align: center;
-  
     border: 1px solid #2D2928;
     border-radius: 107px/61px;
 
@@ -77,6 +93,7 @@
 .main-club {
   position: relative;
   padding-right: 120px;
+  padding-top: 3px;
 
   color: #2D2928;
   font-family: Formular;
@@ -87,7 +104,7 @@
   &::after {
     content: '';
     position: absolute;
-    top: 8px;
+    top: 10px;
     right: 0;
     display: block;
     width: 11px;
@@ -105,13 +122,29 @@
 }
 
 .main-instagramm {
-  max-width: 999px;
-  padding: 0 10px;
+  max-width: 1180px;
+  padding: 0 10px 0 70px;
   width: 100%;
   margin: 0 auto;
 }
 
+.main-instagramm__wrapper {
+  position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.main-instagramm__icon {
+  margin: 0;
+  width: 26px;
+  height: 26px;
+  background: url('../images/instagram.svg') no-repeat center/contain;
+}
+
 .main-instagramm__link {
+  padding-left: 10px;
+  padding-top: 3px;
   font-family: Formular;
   font-size: 32px;
   line-height: 39px;
@@ -130,30 +163,35 @@
 }
 
 .footer {
+  position: relative;
+  z-index: 10;
   margin-top: auto;
   padding-top: 6vh;
   padding-bottom: 6vh;
 }
 
 .marquee {
+  // position: absolute;
+  // bottom: 30px;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
  }
- 
+
  .marquee span {
   display: inline-block;
   padding-left: 100%;
-  animation: marquee 15s linear infinite;
+  animation: marquee 90s linear infinite;
   font-size: 18px;
   line-height: 22px;
+  text-transform: uppercase;
  }
- 
+
  .marquee span:hover {
   animation-play-state: paused
  }
- 
+
  @keyframes marquee {
   0%   { transform: translate(0, 0); }
   100% { transform: translate(-100%, 0); }
@@ -161,42 +199,71 @@
 
 
 @media (max-width: 768px) {
+  .main-header {
+    padding-top: 4vh;
+  }
+
   .main-menu .text {
     width: 122px;
     height: 70px;
 
-    font-size: 20px;
+    font-size: 21px;
     line-height: 26px;
   }
 
+  .main-menu .hover {
+    display: none;
+  }
+
   .main-club {
-    padding-right: 22px;
-    font-size: 20px;
+    padding-right: 9%;
+    font-size: 21px;
     line-height: 26px;
+    white-space: nowrap;
 
     &::after {
-      top: 2px;
+      top: 5px;
       right: 0;
 
-      width: 9px;
-      height: 16px;
+      width: 10px;
+      height: 17px;
     }
   }
 
   .main-logo {
     width: 310px;
     height: 76px;
+    margin: 16vh auto 16vh auto;
+  }
+
+  .main-instagramm {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .main-instagramm__link {
-    font-size: 26px;
+    //padding-left: 30px;
+    font-size: 21px;
+    line-height: 26px;
+  }
+
+  .main-instagramm__icon {
+    width: 19px;
+    height: 19px;
+
   }
 
   .main-instagramm__address {
     font-size: 16px;
+    line-height: 180%;
   }
 
   .marquee span {
     font-size: 16px;
+  }
+
+  .footer {
+    padding-top: 4vh;
+    padding-bottom: 4vh;
   }
 }

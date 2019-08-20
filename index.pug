@@ -1,7 +1,10 @@
 extends layout/layout.pug
 
+block append scripts 
+  script(src="./src/js/gl.js" defer)
 block content
   .index-wrapper
+    canvas#backCanvas(width="200" height="200")
     main.main
       .main-header
         .main-container
@@ -13,8 +16,10 @@ block content
             | AND Y CLUB
       .main-logo
       .main-instagramm
-        a(href="https://www.instagram.com/").main-instagramm__link
-          | instagram
+        .main-instagramm__wrapper
+          .main-instagramm__icon
+          a(href="https://www.instagram.com/andy_food/").main-instagramm__link
+            | instagram
         .main-instagramm__address
-          | 344002, UNIVERSITETSKY 25, ROSTOV-ON-DON, RUSSIA
+          | 344006, PUSHKINSKAYA 158/56, ROSTOV-ON-DON, RUSSIA
     include includes/footer.pug
