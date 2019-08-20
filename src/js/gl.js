@@ -20,23 +20,28 @@ const shaderLocations={}
 const VERTEX_LENGTH_FLOAT = 12;
 const translationSpeed = -0.0014; //units per ms
 const rotationSpeed = 0.025; // degress per ms
-const fovy = 60;
+const fovy = 50;
 const distanceFromEye = 10;
 const viewPlaneHeight = 1.3* (2*distanceFromEye/Math.tan(glMatrix.toRadian(90-fovy/2)));
 const viewPlaneLow = -viewPlaneHeight/2;
 const viewPlaneHigh = -viewPlaneLow;
+const cubeScale = 1.8;
+const cubeScaleVec = [cubeScale,cubeScale,cubeScale]
 const instances=[
-  {x: 0, y:0, z:7, angle:10},
-  {x: 0, y:-3, z:6, angle:90},
-  {x: 0, y:-7, z:5.5, angle:-40},
-  {x: 0, y:4, z:6.5, angle:-50},
-  {x: 0, y:2.5, z:2.5, angle:20},
-  {x: 0, y:0.5, z:-0.5, angle:60},
-  {x: 0, y:5.5, z:-2, angle:30},
-  {x: 0, y:3, z:-5, angle:-45},
-  {x: 0, y:-2.7, z:-1.6, angle:34},
-  {x: 0, y:-5, z:1, angle:0},
-  {x: 0, y:6.6, z:2, angle:67},
+  // y<0  -  right
+  {x: 0, y:6.3, z:2, angle:10},
+  {x: 0, y:2.2, z:1.7, angle:90},
+  {x: 0, y:5, z:-2, angle:-40},
+  {x: 0, y:8.5, z:-4.5, angle:-50},
+  {x: 0, y:4.5, z:5.5, angle:20},
+  {x: 0, y:-0.5, z:-0.5, angle:60},
+  {x: 0, y:1.5, z:-4, angle:30},
+  {x: 0, y:-3, z:2.7, angle:-45},
+  {x: 0, y:-4, z:-2.5, angle:34},
+  {x: 0, y:-7, z:0, angle:0},
+  {x: 0, y:-7.7, z:4.5, angle:-34},
+  {x: 0, y:-6.6, z:-4.8, angle:-67},
+  {x: 0, y:-2, z:6, angle:250},
 ];
 // helper variables
 var lastTime = 0;
@@ -92,8 +97,8 @@ function drawInstance(instance,translated,rotated){
   instance.angle = rotated+instance.angle - Math.round((rotated+instance.angle)/360)*360;
   instance.z = translated+instance.z - Math.round((translated+instance.z)/viewPlaneHeight)*viewPlaneHeight;
 
-  quat.fromEuler(q,0,-30,  instance.angle);
-  mat4.fromRotationTranslationScale(transformMatrix,q,[instance.x,instance.y,instance.z],[2,2,2]);
+  quat.fromEuler(q,0,-33,  instance.angle);
+  mat4.fromRotationTranslationScale(transformMatrix,q,[instance.x,instance.y,instance.z], cubeScaleVec);
   mat3.normalFromMat4(inverseMatrix,transformMatrix);
 
   gl.uniformMatrix4fv(shaderLocations.transformModelLocation,false,transformMatrix);
