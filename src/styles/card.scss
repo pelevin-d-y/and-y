@@ -107,15 +107,20 @@
 .club-oval {
     display: block;
     position: absolute;
+<<<<<<< Updated upstream
     top: 228px;
     right: 0;
+=======
+>>>>>>> Stashed changes
     width: 160px;
     height: 88px;
+    top: 245px;
+    left: 421px;
     background: #F27238;
     border-radius: 50%;
     z-index: -1;
-
-    transition: top 0.3s;
+    transition: transform 0.3s;
+    transform-origin: center;
 }
 
 .club-subtitle {
@@ -155,7 +160,7 @@
 .lavel-item_circle {
     position: absolute;
     right: -20px;
-    top: -50px;
+    top: -31px;
 
     flex-shrink: 0;
     border: 1px solid #D2D2D2;
@@ -323,7 +328,8 @@ marquee {
     .club-oval {
         width: 127px;
         height: 80px;
-        right: 10px;
+        top: 235px;
+        left: 241px;
     }
 }
 
