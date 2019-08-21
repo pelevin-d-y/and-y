@@ -61,7 +61,7 @@
     height: 56px;
     border: 1px solid #2D2928;
     border-radius: 50%;
-   
+
 }
 
 .close::after {
@@ -88,7 +88,7 @@
     background-color: #2D2928;
     z-index: 1;
     transform: rotate(-45deg);
-    
+
 }
 
 .club-title {
@@ -107,11 +107,6 @@
 .club-oval {
     display: block;
     position: absolute;
-<<<<<<< Updated upstream
-    top: 228px;
-    right: 0;
-=======
->>>>>>> Stashed changes
     width: 160px;
     height: 88px;
     top: 245px;
@@ -264,7 +259,7 @@ marquee {
         margin-left: 0;
     }
 
-    
+
 }
 
 @media (max-width: 1024px) {
