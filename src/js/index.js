@@ -46,24 +46,26 @@ function offset(el) {
 
 var  baseOffset;
 
-function prepAnim(){
+function prepAnim() {
   const activeOval = document.getElementsByClassName("club-oval")[0];
-  const items  = document.getElementsByClassName("lavel-item_circle");
-  baseOffset = offset(activeOval);
+  activeOval.coords = {x:0, y:0}
+  const items = document.getElementsByClassName("lavel-item_circle");
+  
   Array.prototype.forEach.call(items,(function(elem){
-    let handler = function(){
+    let handler = function() {
       const targetOffset = offset(elem);
-      console.log(targetOffset,baseOffset)
-      const x = targetOffset.left - baseOffset.left;
-      const y = targetOffset.top -  baseOffset.top;
-      activeOval.style.transform=" translate("+x+"px,"+y+"px)";
+      baseOffset = offset(activeOval);
+      console.log(targetOffset, baseOffset)
+      activeOval.coords.x += targetOffset.left - baseOffset.left;
+      activeOval.coords.y += targetOffset.top -  baseOffset.top;
+      activeOval.style.transform=`translate(${activeOval.coords.x}px, ${activeOval.coords.y}px)`;
     }
-    elem.removeEventListener("mouseenter",handler);
-    elem.addEventListener("mouseenter",handler);
+    elem.removeEventListener("mouseenter", handler);
+    elem.addEventListener("mouseenter", handler);
   }))
 }
 
 prepAnim();
 
 //document.addEventListener('DOMContentLoaded', prepAnim);
-window.addEventListener('resize',prepAnim);
+// window.addEventListener('resize',prepAnim);
