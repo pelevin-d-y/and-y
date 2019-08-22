@@ -24,6 +24,8 @@
     "normalize.css": "^8.0.1",
     "npm": "^6.10.3",
     "parcel-bundler": "^1.12.3",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-flexibility": "^2.0.0",
     "postcss-modules": "^1.4.1"
   }
 }
