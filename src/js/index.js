@@ -41,31 +41,40 @@ function offset(el) {
   var rect = el.getBoundingClientRect(),
   scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
   scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  console.log('scrollTop', scrollTop, 'rect.top', rect.top)
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
 var  baseOffset;
 
-function prepAnim() {
-  const activeOval = document.getElementsByClassName("club-oval")[0];
-  activeOval.coords = {x:0, y:0}
+const addHandlersToItems = () => {
   const items = document.getElementsByClassName("lavel-item_circle");
-  
-  Array.prototype.forEach.call(items,(function(elem){
+  const activeOval = document.getElementsByClassName("club-oval")[0];
+  Array.prototype.forEach.call(items,(function(elem) {
     let handler = function() {
       const targetOffset = offset(elem);
-      baseOffset = offset(activeOval);
       console.log(targetOffset, baseOffset)
-      activeOval.coords.x += targetOffset.left - baseOffset.left;
-      activeOval.coords.y += targetOffset.top -  baseOffset.top;
-      activeOval.style.transform=`translate(${activeOval.coords.x}px, ${activeOval.coords.y}px)`;
+      activeOvalCoords.y = targetOffset.top - baseOffset.top;
+      activeOval.style.transform=`translateY(${activeOvalCoords.y}px)`;
     }
-    elem.removeEventListener("mouseenter", handler);
-    elem.addEventListener("mouseenter", handler);
+    elem.parentElement.removeEventListener("mouseenter", handler);
+    elem.parentElement.removeEventListener("touchstart", handler);
+    elem.parentElement.addEventListener("mouseenter", handler);
+    elem.parentElement.addEventListener("touchstart", handler);
   }))
 }
 
-prepAnim();
+function prepAnim() {
+  const activeOval = document.getElementsByClassName("club-oval")[0];
+  activeOvalCoords = {x:0, y:0}
+  baseOffset = offset(activeOval);
+  
+  addHandlersToItems()
+}
+setTimeout(() => {
+  prepAnim();  
+}, 0)
 
-//document.addEventListener('DOMContentLoaded', prepAnim);
-// window.addEventListener('resize',prepAnim);
+
+// document.addEventListener('DOMContentLoaded', prepAnim);
+window.addEventListener('resize', addHandlersToItems);
