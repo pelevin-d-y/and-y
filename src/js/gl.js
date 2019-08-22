@@ -12,6 +12,7 @@ function fallback(){
 }
 
 
+
 var shaderProgram;
 
 
@@ -50,6 +51,7 @@ var transformMatrix = mat4.create();
 var inverseMatrix = mat3.create();
 var projectionMatrix = mat4.create();
 var viewMatrix = mat4.create();
+var fullProjMat = mat4.create();
 var q = quat.create();
 
 
@@ -60,6 +62,12 @@ var q = quat.create();
 function main(){
   if(!gl)
     return;
+  /// turn off blur on MacOS/firefox because they can't even make a proper gpu blur
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+  var isMac = navigator.platform.toLowerCase().indexOf('mac') > -1;
+  if(isMac && isFirefox){
+     canvas.style.filter = "none"
+  }
   // get VERSION
   console.log(gl.getParameter(gl.SHADING_LANGUAGE_VERSION));
   console.log(gl.getParameter(gl.VERSION));
@@ -124,7 +132,11 @@ function resize(canvas) {
 
 
      mat4.perspective(projectionMatrix,glMatrix.toRadian(fovy),canvas.width/canvas.height,0.1,50);
-     gl.uniformMatrix4fv(shaderLocations.transformProjectionlLocation,false,projectionMatrix);
+     mat4.perspective(projectionMatrix,glMatrix.toRadian(fovy),canvas.width/canvas.height,0.1,50);
+     mat4.lookAt(viewMatrix,[-distanceFromEye,0,0],[0,0,0],[0,0,1]);
+     mat4.mul(fullProjMat,projectionMatrix,viewMatrix);
+     //gl.uniformMatrix4fv(shaderLocations.transformViewlLocation,false,viewMatrix);
+     gl.uniformMatrix4fv(shaderLocations.transformProjectionlLocation,false,fullProjMat);
    }
    gl.viewport(0, 0, canvas.width,canvas.height);
 
@@ -172,9 +184,9 @@ function setConstShaderUniforms(){
 
   mat4.perspective(projectionMatrix,glMatrix.toRadian(fovy),canvas.width/canvas.height,0.1,50);
   mat4.lookAt(viewMatrix,[-distanceFromEye,0,0],[0,0,0],[0,0,1]);
-
-  gl.uniformMatrix4fv(shaderLocations.transformViewlLocation,false,viewMatrix);
-  gl.uniformMatrix4fv(shaderLocations.transformProjectionlLocation,false,projectionMatrix);
+  mat4.mul(fullProjMat,projectionMatrix,viewMatrix);
+  //gl.uniformMatrix4fv(shaderLocations.transformViewlLocation,false,viewMatrix);
+  gl.uniformMatrix4fv(shaderLocations.transformProjectionlLocation,false,fullProjMat);
   gl.uniform3fv(shaderLocations.transformViewPositionLocation,[-5,0,0]);
   gl.uniform4fv(shaderLocations.lightPositionLocation,[-5,0,3,1]);
   // frag
@@ -311,6 +323,5 @@ function pack_model(obj){
   obj.packed_indeces = Uint32Array.from(obj.indeces);
 
 }
-
 
 main();
