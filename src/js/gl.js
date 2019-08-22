@@ -6,11 +6,14 @@ import fallbackBackground  from "../images/main-bg.png"
 
 const canvas = document.querySelector("#backCanvas");
 var gl = canvas.getContext ? canvas.getContext("webgl") : fallback();
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 function fallback(){
   canvas.style = "background: url('"+fallbackBackground+"') no-repeat center/cover"
   return null;
 }
-
 
 
 var shaderProgram;
@@ -98,7 +101,11 @@ function main(){
   window.requestAnimationFrame(calculateFrame);
 }
 
-
+function resizeHandler(){
+  handleResize = true;
+  vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
 
 function drawInstance(instance,translated,rotated){
 
