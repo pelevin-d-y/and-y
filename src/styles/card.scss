@@ -1,3 +1,7 @@
+*{
+    color: #2D2928;
+}
+
 .club-wrapper {
     position: relative;
 
@@ -17,6 +21,8 @@
         padding-right: 20px;
     }
 }
+
+
 
 .card-wrapper {
     position: fixed;
@@ -61,7 +67,7 @@
     height: 56px;
     border: 1px solid #2D2928;
     border-radius: 50%;
-   
+
 }
 
 .close::after {
@@ -88,7 +94,7 @@
     background-color: #2D2928;
     z-index: 1;
     transform: rotate(-45deg);
-    
+
 }
 
 .club-title {
@@ -107,15 +113,15 @@
 .club-oval {
     display: block;
     position: absolute;
-    top: 228px;
-    right: 0;
     width: 160px;
     height: 88px;
+    top: 245px;
+    right: 0;
     background: #F27238;
     border-radius: 50%;
     z-index: -1;
-
-    transition: top 0.3s;
+    transition: transform 0.3s;
+    transform-origin: center;
 }
 
 .club-subtitle {
@@ -155,7 +161,7 @@
 .lavel-item_circle {
     position: absolute;
     right: -20px;
-    top: -50px;
+    top: -31px;
 
     flex-shrink: 0;
     border: 1px solid #D2D2D2;
@@ -237,6 +243,9 @@ marquee {
     line-height: 180%;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    & a{
+        color: rgb(22,35,233);
+    }
 }
 
 @media (max-width: 1200px) {
@@ -259,7 +268,7 @@ marquee {
         margin-left: 0;
     }
 
-    
+
 }
 
 @media (max-width: 1024px) {
@@ -297,6 +306,10 @@ marquee {
         font-size: 16px;
     }
 
+    .lavel-item_text {
+        width: 71%;
+    }
+
     .card-wrapper .close {
         top: 40px;
         right: 15px;
@@ -309,7 +322,7 @@ marquee {
 
     .lavel-item_circle {
         right: -10px;
-        top: -50px;
+        top: -34px;
 
         width: 127px;
         height: 80px;
@@ -323,12 +336,7 @@ marquee {
     .club-oval {
         width: 127px;
         height: 80px;
+        top: 245px;
         right: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .lavel-item_text {
-        width: 72%;
     }
 }

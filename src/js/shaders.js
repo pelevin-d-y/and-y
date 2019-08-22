@@ -7,7 +7,7 @@ attribute vec3 color;
 
 // параметры преобразований
 uniform mat4 transform_model;
-uniform mat4 transform_view;
+//uniform mat4 transform_view;
 uniform mat4 transform_projection;
 uniform mat3 transform_normal;
 uniform vec3 transform_viewPosition;
@@ -26,7 +26,7 @@ varying vec3 vert_color;
 void main(){
 	vec4 vertex = transform_model * coord;
 	vec4 lightDir = light_position - vertex;
-	gl_Position = transform_projection * transform_view * vertex;
+	gl_Position = transform_projection * vertex;
 
 	vert_texcoord = texCoord;
 	vert_normal = transform_normal * norm;

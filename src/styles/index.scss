@@ -2,8 +2,9 @@
   position: absolute;
   top:0;
   left:0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: 9;
   filter:blur(7px);
 }
@@ -12,20 +13,27 @@
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-
   width: 100%;
-  min-height: 100vh;
-
-  //background: url('../images/main-bg.png') no-repeat center/cover;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .main {
   position: relative;
+  height:100vh;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .main-header {
   padding-top: 7vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .main-container {
@@ -102,6 +110,8 @@
   text-decoration: none;
 
   &::after {
+
+    margin-left: 10px;
     content: '';
     position: absolute;
     top: 10px;
@@ -116,8 +126,7 @@
 .main-logo {
   width: 668px;
   height: 169px;
-  margin: 17vh auto 17vh auto;
-
+  margin: auto;
   background: url('../images/logo.svg') no-repeat center/contain;
 }
 
@@ -130,20 +139,21 @@
 
 .main-instagramm__wrapper {
   position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
 }
 
 .main-instagramm__icon {
-  position: absolute;
-  left: 0;
-  top: 6px;
+  margin: 0;
   width: 26px;
   height: 26px;
   background: url('../images/instagram.svg') no-repeat center/contain;
 }
 
 .main-instagramm__link {
-  padding-left: 34px;
-
+  padding-left: 10px;
+  padding-top: 3px;
   font-family: Formular;
   font-size: 32px;
   line-height: 39px;
@@ -153,7 +163,7 @@
 
 .main-instagramm__address {
   margin-top: 8px;
-
+  color: #2D2928;
   font-family: Formular;
   font-size: 18px;
   line-height: 22px;
@@ -165,8 +175,7 @@
   position: relative;
   z-index: 10;
   margin-top: auto;
-  padding-top: 6vh;
-  padding-bottom: 6vh;
+  padding-bottom: 44px;
 }
 
 .marquee {
@@ -176,6 +185,7 @@
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
+    color: #2D2928;
  }
 
  .marquee span {
@@ -215,12 +225,15 @@
   }
 
   .main-club {
-    padding-right: 9%;
+    display: block;
+    width: auto;
+    padding-right: 9vw;
     font-size: 21px;
     line-height: 26px;
     white-space: nowrap;
 
     &::after {
+      margin-left: 10px;
       top: 5px;
       right: 0;
 
@@ -232,7 +245,6 @@
   .main-logo {
     width: 310px;
     height: 76px;
-    margin: 16vh auto 16vh auto;
   }
 
   .main-instagramm {
@@ -241,16 +253,15 @@
   }
 
   .main-instagramm__link {
-    padding-left: 30px;
-
+    //padding-left: 30px;
     font-size: 21px;
     line-height: 26px;
   }
 
   .main-instagramm__icon {
-    top: 2px;
     width: 19px;
     height: 19px;
+
   }
 
   .main-instagramm__address {
@@ -263,7 +274,6 @@
   }
 
   .footer {
-    padding-top: 4vh;
-    padding-bottom: 4vh;
+    padding-bottom: calc(var(--vh, 1vh) * 4);
   }
 }
