@@ -1,5 +1,5 @@
 
-import {glMatrix,mat4,mat3,quat} from "gl-Matrix"
+import {glMatrix,mat4,mat3,quat} from "gl-matrix"
 import {vertex_shader_source,frag_shader_source} from "./shaders.js"
 import {cube_obj} from "./cube.js"
 import fallbackBackground  from "../images/main-bg.png"
@@ -10,6 +10,7 @@ function fallback(){
   canvas.style = "background: url('"+fallbackBackground+"') no-repeat center/cover"
   return null;
 }
+
 
 
 var shaderProgram;
@@ -61,6 +62,12 @@ var q = quat.create();
 function main(){
   if(!gl)
     return;
+  /// turn off blur on MacOS/firefox because they can't even make a proper gpu blur
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+  var isMac = navigator.platform.toLowerCase().indexOf('mac') > -1;
+  if(isMac && isFirefox){
+     canvas.style.filter = "none"
+  }
   // get VERSION
   console.log(gl.getParameter(gl.SHADING_LANGUAGE_VERSION));
   console.log(gl.getParameter(gl.VERSION));
@@ -316,6 +323,5 @@ function pack_model(obj){
   obj.packed_indeces = Uint32Array.from(obj.indeces);
 
 }
-
 
 main();

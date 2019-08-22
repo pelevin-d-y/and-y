@@ -1,3 +1,7 @@
+*{
+    color: #2D2928;
+}
+
 .club-wrapper {
     position: relative;
 
@@ -17,6 +21,8 @@
         padding-right: 20px;
     }
 }
+
+
 
 .card-wrapper {
     position: fixed;
@@ -297,6 +303,10 @@ marquee {
         font-size: 16px;
     }
 
+    .lavel-item_text {
+        width: 71%;
+    }
+
     .card-wrapper .close {
         top: 40px;
         right: 15px;
@@ -309,7 +319,7 @@ marquee {
 
     .lavel-item_circle {
         right: -10px;
-        top: -50px;
+        top: -34px;
 
         width: 127px;
         height: 80px;
@@ -325,11 +335,5 @@ marquee {
         height: 80px;
         top: 245px;
         right: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .lavel-item_text {
-        width: 72%;
     }
 }
