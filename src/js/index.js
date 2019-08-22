@@ -3,7 +3,7 @@ function offset(el) {
   var rect = el.getBoundingClientRect(),
   scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
   scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  console.log('scrollTop', scrollTop, 'rect.top', rect.top)
+  //console.log('scrollTop', scrollTop, 'rect.top', rect.top)
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
@@ -15,14 +15,13 @@ const addHandlersToItems = () => {
   Array.prototype.forEach.call(items,(function(elem) {
     let handler = function() {
       const targetOffset = offset(elem);
-      console.log(targetOffset, baseOffset)
       activeOvalCoords.y = targetOffset.top - baseOffset.top;
       activeOval.style.transform=`translateY(${activeOvalCoords.y}px)`;
     }
-    elem.parentElement.removeEventListener("mouseenter", handler);
-    elem.parentElement.removeEventListener("touchstart", handler);
-    elem.parentElement.addEventListener("mouseenter", handler);
-    elem.parentElement.addEventListener("touchstart", handler);
+    elem.parentElement.removeEventListener("mouseenter", handler,{passive: true});
+    elem.parentElement.removeEventListener("touchstart", handler,{passive: true});
+    elem.parentElement.addEventListener("mouseenter", handler,{passive: true});
+    elem.parentElement.addEventListener("touchstart", handler,{passive: true});
   }))
 }
 
