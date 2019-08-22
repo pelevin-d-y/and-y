@@ -243,6 +243,9 @@ marquee {
     line-height: 180%;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    & a{
+        color: rgb(22,35,233);
+    }
 }
 
 @media (max-width: 1200px) {
