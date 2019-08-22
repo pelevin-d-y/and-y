@@ -110,6 +110,8 @@
   text-decoration: none;
 
   &::after {
+
+    margin-left: 10px;
     content: '';
     position: absolute;
     top: 10px;
@@ -223,12 +225,15 @@
   }
 
   .main-club {
-    padding-right: 9%;
+    display: block;
+    width: auto;
+    padding-right: 9vw;
     font-size: 21px;
     line-height: 26px;
     white-space: nowrap;
 
     &::after {
+      margin-left: 10px;
       top: 5px;
       right: 0;
 
@@ -240,7 +245,6 @@
   .main-logo {
     width: 310px;
     height: 76px;
-    //margin: 16vh auto 16vh auto;
   }
 
   .main-instagramm {
