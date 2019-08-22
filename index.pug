@@ -1,4 +1,21 @@
 extends layout/layout.pug
+block headstyles
+  style(type="text/css").
+    .main-menu .hover {
+      position: absolute;
+      z-index: 9;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform .3s;
+      pointer-events: none;
+      border-radius: 299px/162px;
+
+      display: block;
+      width: 592px;
+      height: 325px;
+      background: #1E30E3;
+    }
 
 block append scripts 
   script(src="./src/js/gl.js" defer)
