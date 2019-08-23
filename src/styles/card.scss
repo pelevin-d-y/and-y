@@ -161,8 +161,8 @@
 .lavel-item_circle {
     position: absolute;
     right: -20px;
-    top: -36px;
-
+    top: -42px;
+    text-align: center;
     flex-shrink: 0;
     border: 1px solid #D2D2D2;
     box-sizing: border-box;
@@ -172,7 +172,7 @@
     font-family: Formular;
     font-size: 48px;
     line-height: 59px;
-    padding: 13px 28px 21px 28px;
+    padding: 18px;
     text-align: center;
     letter-spacing: -0.05em;
     text-transform: uppercase;
@@ -322,11 +322,11 @@ marquee {
 
     .lavel-item_circle {
         right: -10px;
-        top: -34px;
+        top: -32px;
 
         width: 127px;
         height: 80px;
-        padding: 14px 22px 21px 28px;
+        padding: 12px;
 
         font-size: 36px;
         line-height: 59px;
