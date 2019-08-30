@@ -1,3 +1,5 @@
+
+
 .menu-wrapper {
     display: flex;
     justify-content: flex-start;
@@ -8,6 +10,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 9%;
+    margin-top: 70px;
 }
 .menu-title {
     margin-top: 106px;
@@ -23,7 +26,7 @@
     color: #D2D2D2;
 }
 .menu-img {
-    margin-top: 80px;
+    width:40vw;
 }
 
 .close-wrapper {
@@ -53,14 +56,17 @@
         margin-left: 20px;
     }
     .menu-img {
-        margin-top: 80px;
+      //  margin-top: 80px;
     }
 }
 
 @media (max-width: 768px) {
     .container-menu {
         margin-left: 0;
+        margin-top: 20px;
     }
+
+
 
     .close {
         background: #ffffff;
@@ -78,7 +84,7 @@
         width: 100%;
         min-height: auto;
         margin-left: 0px;
-        margin-top: 30px;
+      //  margin-top: 30px;
     }
 
 }
