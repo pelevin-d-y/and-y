@@ -26,6 +26,6 @@
     "parcel-bundler": "^1.12.3",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-flexibility": "^2.0.0",
-    "postcss-modules": "^1.4.1"
+    "postcss-modules": "^1.5.0"
   }
 }
